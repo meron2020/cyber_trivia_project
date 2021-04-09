@@ -97,3 +97,8 @@ class Quiz(Resource):
 class QuizList(Resource):
     def get(self):
         return {'quizzes': list(map(lambda x: x.quiz_name, QuizDatabaseHandler.get_all_quizzes()))}
+
+
+class checker(Resource):
+    def get(self):
+        return "I'm alive<"

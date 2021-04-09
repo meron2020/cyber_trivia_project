@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_restful import Api
-from resources.quiz import Quiz
+from resources.quiz import Quiz, checker
 from resources.quiz import QuizList
 from datetime import timedelta
 from db import db
@@ -29,6 +29,7 @@ def create_tables():
 api.add_resource(Quiz, '/quiz/<string:name>')
 api.add_resource(QuizList, '/quizzes')
 api.add_resource(User, '/user/<string:name>')
+api.add_resource(checker, '/checker')
 
 
 if __name__ == '__main__':
