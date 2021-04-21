@@ -1,5 +1,9 @@
+import axios from 'axios';
+
 const ServerConnection = {
     url: "https://trivia-game-cyber.herokuapp.com/",
+
+
 
     async getQuiz(quiz, jwt_token) {
         try {
@@ -73,19 +77,29 @@ const ServerConnection = {
         }
     },
 
-    async getQuizzes() {
-        try {
-            const headers = {"content-type": "application/json", "connection": "keep-alive"};
-            const response = await fetch(`${ServerConnection.url}quizzes`, { headers: headers});
-            if (response.ok) {
-                const jsonResponse = await response.json();
-                return jsonResponse['quizzes'];
-            }
-            throw new Error('Request failed!');
-        }
-        catch (error) {
-            document.write(error)
-        }
+     getQuizzes() {
+         const headers = {"content-type": "application/json", "connection": "keep-alive"};
+
+         axios.get(`${this.url}quizzes`, {headers: headers})
+             .then(response => {
+                 if (response.ok) {
+                     return response.json();
+                 }
+             }).then(jsonResponse => {
+                 return jsonResponse['quizzes']
+         }).catch(error => {
+             document.write(error);
+         })
+        //     const response = await fetch(`${ServerConnection.url}quizzes`, { headers: headers});
+        //     if (response.ok) {
+        //         const jsonResponse = await response.json();
+        //         return jsonResponse['quizzes'];
+        //     }
+        //     throw new Error('Request failed!');
+        // }
+        // catch (error) {
+        //     document.write(error)
+        // }
     },
 
     async register(user, password) {
