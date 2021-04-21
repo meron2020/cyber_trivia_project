@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 from flask_restful import Api
 from api.resources.quiz import Quiz, checker
 from api.resources.quiz import QuizList
@@ -8,13 +8,15 @@ from api.resources.user import User
 from flask_jwt import JWT
 from security import authenticate, identity
 
-app = Flask(__name__, static_url_path='', )
+
+app = Flask(__name__, static_url_path='', static_folder='frontend/build')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['PROPAGATE_EXCEPTIONS'] = True
 app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=1800)
 
 app.secret_key = 'jose'
+
 api = Api(app)
 
 jwt = JWT(app, authenticate, identity)
@@ -26,6 +28,11 @@ jwt = JWT(app, authenticate, identity)
 def create_tables():
     db.init_app(app)
     db.create_all()
+
+
+@app.route("/", defaults={'path':''})
+def serve(path):
+    return send_from_directory(app.static_folder, 'index.html')
 
 
 api.add_resource(Quiz, '/quiz/<string:name>')
