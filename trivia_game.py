@@ -9,7 +9,6 @@ class TriviaGame:
         self.url = "http://trivia-game-cyber.herokuapp.com/"
         self.requests = Requests(self.url)
 
-
     def login(self, username, password):
         jwt_token = self.requests.login(username, password)
 

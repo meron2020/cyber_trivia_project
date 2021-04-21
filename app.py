@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 from flask_restful import Api
 from resources.quiz import Quiz, checker
 from resources.quiz import QuizList
@@ -7,8 +7,9 @@ from db import db
 from resources.user import User
 from flask_jwt import JWT
 from security import authenticate, identity
+from flask_cors import CORS
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='', )
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['PROPAGATE_EXCEPTIONS'] = True
