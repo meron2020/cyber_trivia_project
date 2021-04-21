@@ -4,7 +4,7 @@ from api.resources.quiz import Quiz, checker
 from api.resources.quiz import QuizList
 from datetime import timedelta
 from db import db
-from api.resources import User
+from api.resources.user import User
 from flask_jwt import JWT
 from security import authenticate, identity
 
