@@ -1,5 +1,5 @@
 from db import db
-from models.answer import Answer
+from api.models.answer import Answer
 
 
 class AnswerDatabaseHandler:

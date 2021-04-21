@@ -1,4 +1,4 @@
-from models.usermodel import UserModel
+from api.models.usermodel import UserModel
 
 
 class UserDatabaseHandler:

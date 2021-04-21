@@ -1,6 +1,5 @@
-from db import db
-from database_handlers.answer_database_handler import AnswerDatabaseHandler
-from models.question_class import Question
+from api.database_handlers.answer_database_handler import AnswerDatabaseHandler
+from api.models.question_class import Question
 
 
 class QuestionDatabaseHandler:

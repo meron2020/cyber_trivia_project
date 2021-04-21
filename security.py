@@ -1,5 +1,5 @@
-from models.usermodel import UserModel
-from database_handlers.user_database_handler import UserDatabaseHandler
+from api.models import UserModel
+from api.database_handlers.user_database_handler import UserDatabaseHandler
 
 
 def authenticate(username, password):

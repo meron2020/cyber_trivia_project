@@ -1,13 +1,12 @@
-from flask import Flask, send_from_directory
+from flask import Flask
 from flask_restful import Api
-from resources.quiz import Quiz, checker
-from resources.quiz import QuizList
+from api.resources.quiz import Quiz, checker
+from api.resources.quiz import QuizList
 from datetime import timedelta
 from db import db
-from resources.user import User
+from api.resources import User
 from flask_jwt import JWT
 from security import authenticate, identity
-from flask_cors import CORS
 
 app = Flask(__name__, static_url_path='', )
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
