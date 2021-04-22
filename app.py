@@ -6,6 +6,7 @@ from datetime import timedelta
 from db import db
 from api.resources.user import User
 from flask_jwt import JWT
+from flask_cors import CORS
 from security import authenticate, identity
 
 
@@ -16,7 +17,7 @@ app.config['PROPAGATE_EXCEPTIONS'] = True
 app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=1800)
 
 app.secret_key = 'jose'
-
+CORS(app)
 api = Api(app)
 
 jwt = JWT(app, authenticate, identity)

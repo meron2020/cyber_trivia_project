@@ -6,7 +6,7 @@ from client_side.add_or_remove_question import AddOrRemoveQuestion
 
 class TriviaGame:
     def __init__(self):
-        self.url = "http://trivia-game-cyber.herokuapp.com/"
+        self.url = "http://127.0.0.1:5000/"
         self.requests = Requests(self.url)
 
     def login(self, username, password):

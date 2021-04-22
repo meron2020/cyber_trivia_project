@@ -1,6 +1,6 @@
 from flask_restful import Resource, reqparse
 from api.database_handlers.user_database_handler import UserDatabaseHandler
-from api.models import UserModel
+from api.models.usermodel import UserModel
 
 
 class User(Resource):

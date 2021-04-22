@@ -1,7 +1,7 @@
 from flask_restful import Resource, reqparse
 from api.database_handlers.quiz_database_handler import QuizDatabaseHandler
-from api.models import QuizModel
-from api.models import Question
+from api.models.quiz import QuizModel
+from api.models.question_class import Question
 from flask_jwt import jwt_required
 
 
@@ -101,4 +101,4 @@ class QuizList(Resource):
 
 class checker(Resource):
     def get(self):
-        return "I'm alive<"
+        return {"message": "I'm alive"}
