@@ -65,7 +65,7 @@ class SignUpContainer extends Component {
   }
 
   submitSignup(user) {
-    var params = { username: user.usr, password: user.pw, email: user.email };
+    var params = { username: user.usr, password: user.pw};
     axios
       .post("https://ouramazingserver.com/api/signup/submit", params)
       .then(res => {

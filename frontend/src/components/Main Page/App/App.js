@@ -30,14 +30,14 @@ class Home extends React.Component {
         <div className="home">
           <div className="container">
             <h1>Trivia Game</h1>
-            <div id="holder">
-              <div id="logo" className='left'>
-                <img src={aiImage}/>
-              </div>
+            <div className="image">
+              <img src={aiImage} />
+            </div>
+
+
             <GameList games={this.state.games}/>
           </div>
 
-        </div>
         </div>
     )
   }

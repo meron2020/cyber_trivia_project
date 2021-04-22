@@ -17,22 +17,29 @@ input:focus {
 /* Reusable Component - Image Container */
 
 .image-container {
-  display: flex;
+  display: block;
   flex-direction: column;
-  justify-content: left;
+  justify-content: center;
   overflow: hidden;
-  background: #000;
+  background: #c12f2f;
+  margin-bottom: 100px;
 }
 
-.image-container img.left {
+.image-container img {
+  width: 100%;
+  justify-content: center;
+}
+.image{
   width: 1440px;
-  height: 600px;
-  position: absolute;
-  top: 50px;
-  left: 50px;
+  display: inline-block;
 }
 
-
+.image img{
+  display: block;
+  float: left;
+  clear: left;
+  margin-left: -33%;
+}
 /* App Styles */
 
 .App {
@@ -46,4 +53,7 @@ h1 {
   font-family: Poppins, sans-serif;
   font-size: 1.8rem;
   color: #fff;
+}
+#page {
+  margin-bottom: 61px;
 }
