@@ -1,6 +1,7 @@
 import React from 'react';
-import './Game.css';
+import './BuildQuizList.css';
 import triviaphoto from './istockphoto-973102672-170667a.jpg'
+import { Link } from 'react-router-dom';
 
 class BuildQuizLink extends React.Component {
     render() {
@@ -9,7 +10,9 @@ class BuildQuizLink extends React.Component {
                 <div className="image-container">
                     <img src={triviaphoto} alt='ai photo'/>
                 </div>
-                <h2>{this.props.game}</h2>
+                <div className="BuildQuiz">
+                    <Link to='/buildQuiz'>Build A Quiz</Link>
+                </div>
             </div>)
     }
 }

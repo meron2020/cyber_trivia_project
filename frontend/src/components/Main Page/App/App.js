@@ -1,9 +1,7 @@
-import GameList from "../GameList/GameList";
 import './App.css';
 import React from 'react';
-import SearchBar from "../Game Search Bar/searchBar";
-import ServerConnection from '../Api Connection/serverConnection'
 import aiImage from '../Game Search Bar/ai-machine-learning.png'
+import BuildQuizLink from "../Build Quiz Link/BuildQuizLink";
 
 class Home extends React.Component {
   constructor(props) {
@@ -13,17 +11,9 @@ class Home extends React.Component {
       games: []
     };
 
-    // this.searchAPI = this.searchAPI.bind(this);
-    // this.getQuizzes = this.getQuizzes.bind(this);
-    // this.getQuizzes();
 
 
   }
-  // getQuizzes() {
-  //   ServerConnection.getQuizzes().then(games => {
-  //     this.setState( {games: games});
-  //   });
-  // }
 
   render() {
     return (
@@ -33,8 +23,7 @@ class Home extends React.Component {
             <div className="image">
               <img src={aiImage} />
             </div>
-
-
+            <BuildQuizLink/>
             {/*<GameList games={this.state.games}/>*/}
           </div>
 

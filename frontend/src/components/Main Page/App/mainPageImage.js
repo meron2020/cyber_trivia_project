@@ -4,7 +4,7 @@
 //
 // function myImageComponent() {
 //         const {src} = useImage({
-//             srcList: '\'..\\\\Game Search Bar\\\\ai-machine-learning.png\'',
+//             srcList: '\'..\\\\BuildQuizLink Search Bar\\\\ai-machine-learning.png\'',
 //         })
 //
 //         return <img src={src} />
@@ -13,7 +13,7 @@
 //     render() {
 //         return (
 //             <Suspense>
-//             <img src={'..\\Game Search Bar\\ai-machine-learning.png'} />)
+//             <img src={'..\\BuildQuizLink Search Bar\\ai-machine-learning.png'} />)
 //             </Suspense>)
 //                 }
 // }
