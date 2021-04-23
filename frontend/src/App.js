@@ -7,9 +7,14 @@ import './App.css';
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {jwtToken: ''};
+        this.setToken = this.setToken.bind(this);
 
     }
+    setToken(jwtToken) {
+        this.setState( {jwtToken: jwtToken})
+    }
+
     render() {
         return (
             <div className="App">
@@ -18,7 +23,7 @@ class App extends React.Component {
                     <Switch>
                         <Route path="/" exact component={() => <Home />} />
                         <div className="login">
-                            <Route path="/login" exact component={() => <Login />} />
+                            <Route path="/login" exact component={() => <Login setToken={this.setToken}/>} />
                             <Route path="/signup" exact component={() => <Register />} />
                         </div>
 

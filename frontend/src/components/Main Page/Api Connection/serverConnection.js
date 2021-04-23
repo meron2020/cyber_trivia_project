@@ -1,4 +1,3 @@
-import axios from 'axios';
 const fetch = require('node-fetch')
 
 
@@ -95,11 +94,11 @@ const ServerConnection = {
             document.write(error)
     }},
 
-    async register(user, password) {
+     async register(user, password) {
         try {
             const headers = {"content-type": "application/json", "connection": "keep-alive"}
             const data = JSON.stringify({"password": password});
-            const response = await fetch(`${ServerConnection.url}user/${user}`, {method: "PUT", headers: headers, body: data})
+            const response = await fetch(`${ServerConnection.url}user/${user}`, {method: "POST", headers: headers, body: data})
             if (response.ok) {
                 const jsonResponse = await response.json();
                 return jsonResponse['message'];

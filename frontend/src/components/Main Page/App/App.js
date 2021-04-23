@@ -15,7 +15,7 @@ class Home extends React.Component {
 
     // this.searchAPI = this.searchAPI.bind(this);
     this.getQuizzes = this.getQuizzes.bind(this);
-    this.getQuizzes();
+    // this.getQuizzes();
 
 
   }
@@ -35,7 +35,7 @@ class Home extends React.Component {
             </div>
 
 
-            <GameList games={this.state.games}/>
+            {/*<GameList games={this.state.games}/>*/}
           </div>
 
         </div>
