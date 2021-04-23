@@ -1,6 +1,7 @@
 import React from 'react';
 import BuildQuestion from "./buildQuestion";
 import QuizIntro from './QuizIntro';
+import Button from "react-bootstrap/Button";
 
 
 class BuildQuiz extends React.Component {
@@ -10,14 +11,17 @@ class BuildQuiz extends React.Component {
         this.state = {
             questionsObj: {},
             quizName: '',
-            questionAmount: ''}
+            questionAmount: '',
+            counter: 1}
         this.addQuestionObj = this.addQuestionObj.bind(this);
         this.checkQuizIntro = this.checkQuizIntro.bind(this);
         this.setQuizIntro = this.setQuizIntro.bind(this);
+        this.checkQuestionAmount = this.checkQuestionAmount.bind(this);
     }
 
     addQuestionObj(questionObj) {
         this.questionsObj[questionObj.keys()] = questionObj.values();
+        this.setState({counter: this.counter++});
     }
 
     checkQuizIntro() {
@@ -29,11 +33,17 @@ class BuildQuiz extends React.Component {
         this.setState({questionAmount: questionAmount})
     }
 
+    checkQuestionAmount() {
+        return this.state.questionAmount > this.state.questionsObj.length;
+    }
+
+
     render() {
-        let counter = 1;
+
         return(<div className="Quiz">
             {this.checkQuizIntro ? <QuizIntro setQuizIntro={this.setQuizIntro}/>: null}
-            <BuildQuestion addQuestionObj={this.addQuestionObj} questionNumber={counter}/>
+            {this.checkQuestionAmount ? <BuildQuestion addQuestionObj={this.addQuestionObj} questionNumber={this.state.counter}/> :
+                <Button block size="lg" type="submit" onClick={this.setQuizIntro}>Submit Quiz</Button>}
         </div>)
     }
 
