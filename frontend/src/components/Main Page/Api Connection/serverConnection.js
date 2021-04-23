@@ -27,7 +27,8 @@ const ServerConnection = {
             const headers = {"content-type": "application/json", "connection": "keep-alive"}
             const response = await fetch(`${ServerConnection.url}quiz/${quiz}`, {method:"POST", headers: headers,body:data})
             if (response.ok) {
-                return await response.json();
+                const jsonResponse = await response.json();
+                return jsonResponse['message'];
             }
             throw new Error('Request failed!');
         }

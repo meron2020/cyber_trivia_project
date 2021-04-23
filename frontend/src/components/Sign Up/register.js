@@ -57,6 +57,7 @@ class Register extends React.Component{
             let token = await ServerConnection.auth(this.state.username, this.state.password).then((authResponse) =>authResponse);
             if (token){
                 this.props.setToken(token);
+                this.props.setUser(this.state.username)
                 alert("You are signed upp.")
             }
         }
