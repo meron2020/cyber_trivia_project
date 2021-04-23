@@ -42,5 +42,4 @@ class User(Resource):
         handler.add_quiz_to_user(name, data['quiz_name'], data['percentage'])
         handler.update_user(data['percentage'], name)
 
-
         return {"message": "Stats updated."}, 201

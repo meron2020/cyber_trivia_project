@@ -3,19 +3,26 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./login.css";
 import ServerConnection from "../Main Page/Api Connection/serverConnection";
+import HomeButton from './returnToHomePage';
+
+
+
+
 
 class Register extends React.Component{
     constructor(props) {
-        super (props);
+        super(props);
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            userCreated: false
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.validateForm = this.validateForm.bind(this);
         this.setUsername = this.setUsername.bind(this);
         this.setPassword = this.setPassword.bind(this);
-        this.register = this.register.bind(this);
+        this.serverRegister = this.serverRegister.bind(this);
+        this.setUserCreated = this.setUserCreated.bind(this);
     }
 
 
@@ -35,17 +42,26 @@ class Register extends React.Component{
         this.setState({password: newPassword})
     }
 
+    setUserCreated() {
+        if (!this.state.userCreated) {
+            this.setState({userCreated: true})
+        }
+    }
 
-    register() {
-        const register = ServerConnection.register(this.state.username, this.state.password);
-        if (register === "User created successfully.") {
-            alert("User created successfully.")
-            const token = ServerConnection.auth(this.username, this.password);
+
+
+    async serverRegister() {
+        let response = await ServerConnection.register(this.state.username, this.state.password).then((result) =>result);
+        if (response === "User created successfully.") {
+            this.setUserCreated();
+            let token = await ServerConnection.auth(this.state.username, this.state.password).then((authResponse) =>authResponse);
             if (token){
                 this.props.setToken(token);
+                alert("You are signed upp.")
             }
         }
     }
+
 
 
 
@@ -79,9 +95,10 @@ class Register extends React.Component{
                             onChange={(e) => this.setPassword(e.target.value)}
                         />
                     </Form.Group>
-                    <Button block size="lg" type="submit" disabled={!this.validateForm()} onClick={this.register}>
+                    <Button block size="lg" type="submit" disabled={!this.validateForm()} onClick={this.serverRegister}>
                         Sign Up
                     </Button>
+                    <HomeButton/>
                 </Form>
             </div>
         );

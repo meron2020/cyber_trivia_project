@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./login.css";
+import ServerConnection from "../Main Page/Api Connection/serverConnection";
+import HomeButton from './returnToHomePage';
+
 
 class Login extends React.Component{
     constructor(props) {
@@ -12,6 +15,7 @@ class Login extends React.Component{
         this.validateForm = this.validateForm.bind(this);
         this.setUsername = this.setUsername.bind(this);
         this.setPassword = this.setPassword.bind(this);
+        this.login = this.login.bind(this);
     }
 
 
@@ -30,6 +34,16 @@ class Login extends React.Component{
     setPassword(newPassword) {
         this.setState({password: newPassword})
     }
+
+    async login() {
+        let token = await ServerConnection.auth(this.state.username, this.state.password).then((authResponse) => authResponse);
+        if (token) {
+            this.props.setToken(token);
+            alert("logged in")
+        }
+    }
+
+
 
 
 
@@ -57,9 +71,10 @@ class Login extends React.Component{
                             onChange={(e) => this.setPassword(e.target.value)}
                         />
                     </Form.Group>
-                    <Button block size="lg" type="submit" disabled={!this.validateForm()}>
+                    <Button block size="lg" type="submit" disabled={!this.validateForm()} onClick={this.login}>
                         Login
                     </Button>
+                    <HomeButton/>
                 </Form>
             </div>
         );

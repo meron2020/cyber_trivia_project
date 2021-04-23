@@ -14,16 +14,16 @@ class Home extends React.Component {
     };
 
     // this.searchAPI = this.searchAPI.bind(this);
-    this.getQuizzes = this.getQuizzes.bind(this);
+    // this.getQuizzes = this.getQuizzes.bind(this);
     // this.getQuizzes();
 
 
   }
-  getQuizzes() {
-    ServerConnection.getQuizzes().then(games => {
-      this.setState( {games: games});
-    });
-  }
+  // getQuizzes() {
+  //   ServerConnection.getQuizzes().then(games => {
+  //     this.setState( {games: games});
+  //   });
+  // }
 
   render() {
     return (

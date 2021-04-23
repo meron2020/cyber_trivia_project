@@ -1,9 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Navigation, Footer, Home, Login, Register } from "./components/index";
-
-
 import './App.css';
+
+
+
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -24,7 +26,7 @@ class App extends React.Component {
                         <Route path="/" exact component={() => <Home />} />
                         <div className="login">
                             <Route path="/login" exact component={() => <Login setToken={this.setToken}/>} />
-                            <Route path="/signup" exact component={() => <Register />} />
+                            <Route path="/signup" exact component={() => <Register setToken={this.setToken}/>} />
                         </div>
 
                     </Switch>
