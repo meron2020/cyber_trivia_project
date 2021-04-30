@@ -4,7 +4,7 @@ const fetch = require('node-fetch')
 
 //
 const ServerConnection = {
-    url: "https://trivia-game-cyber.herokuapp.com/",
+    url: "/",
 
 
 

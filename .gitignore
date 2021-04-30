@@ -4,6 +4,7 @@ __pycache__/
 
 # dependencies
 /node_modules
+/.idea
 /.pnp
 .pnp.js
 
