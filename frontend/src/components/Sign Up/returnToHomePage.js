@@ -2,11 +2,13 @@ import {useHistory} from "react-router-dom";
 import React from "react";
 import Button from "react-bootstrap/Button";
 
+
 function HomeButton() {
     const history = useHistory();
 
     function handleClick() {
-        history.push("/");
+        history.push("/HomePage");
+
     }
 
     return (

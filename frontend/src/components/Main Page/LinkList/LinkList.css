@@ -1,0 +1,11 @@
+.LinksList {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    position: relative;
+    margin: 4.4rem 10%;
+    margin-bottom: 100px;
+    margin-left: -3%;
+}

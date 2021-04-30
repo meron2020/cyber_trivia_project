@@ -31,8 +31,8 @@ def create_tables():
     db.create_all()
 
 
-@app.route("/", defaults={'path':''})
-def serve(path):
+@app.route('/')
+def serve():
     return send_from_directory(app.static_folder, 'index.html')
 
 

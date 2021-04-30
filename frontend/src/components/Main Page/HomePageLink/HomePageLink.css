@@ -1,0 +1,32 @@
+.Link {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 400px;
+    margin: auto;
+    margin-bottom: 100px;
+    /*margin-left: 30px;*/
+    outline: 5px outset #535357
+}
+
+ .image-container {
+    height: 300px;
+    margin-bottom: 10px;
+}
+ .link {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+     margin-left: 65px;
+    font-weight: 600;
+     background-image: linear-gradient(to right, #C33764, #1D2671);
+     /*box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);*/
+    padding: 0.5em 1em;
+    text-decoration: none;
+     border-radius: 20px;
+    text-transform: uppercase;
+     width: 66%;
+}
+ .link:hover {
+    background-color: #978686;
+    cursor: pointer;
+}

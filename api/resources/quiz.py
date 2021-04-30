@@ -38,7 +38,6 @@ class Quiz(Resource):
     def __init__(self):
         self.handler = QuizDatabaseHandler()
 
-    @jwt_required()
     def get(self, name):
         try:
             quiz, question_list = self.handler.turn_to_quiz(name)

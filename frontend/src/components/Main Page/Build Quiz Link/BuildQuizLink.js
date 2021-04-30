@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 class BuildQuizLink extends React.Component {
     render() {
         return (
-            <div className="Game">
+            <div className="BuildQuizLink">
                 <div className="image-container">
                     <img src={triviaphoto} alt='ai photo'/>
                 </div>

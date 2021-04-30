@@ -10,9 +10,10 @@ const ServerConnection = {
 
     async getQuiz(quiz, jwt_token) {
         try {
-            const response = await fetch(`${ServerConnection.url}quiz/${quiz}`, {headers: {"content-type": "application/json", "connection": "keep-alive", "Authorization": "JWT " + jwt_token[1]}});
+            const response = await fetch(`${ServerConnection.url}quiz/${quiz}`, {headers: {"content-type": "application/json", "connection": "keep-alive", }});
             if (response.ok) {
-                return await response.json();
+                const jsonResponse =  await response.json();
+                return Object.values(jsonResponse);
             }
             throw new Error("Request failed!");
         }
@@ -135,7 +136,8 @@ const ServerConnection = {
             const data = JSON.stringify({"percentage": percentage, "quiz_name": quizName});
             const response = await fetch(`${ServerConnection.url}user/${user}`, {method: "PUT", body: data, headers: headers})
             if (response.ok) {
-                return await response.json();
+                let jsonResponse = await response.json();
+                return jsonResponse['message'];
             }
             throw new Error("Request failed!")
         }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import './quizIntro.css'
 
 class QuizIntro extends React.Component {
     constructor(props) {
@@ -23,7 +24,8 @@ class QuizIntro extends React.Component {
     }
 
     setQuizIntro(){
-        this.props.setQuizIntro(this.state.quizName, this.state.questionAmount)
+        this.props.setQuizName( this.state.quizName)
+        this.props.setQuestionAmount( this.state.questionAmount)
     }
 
     render() {
@@ -36,7 +38,7 @@ class QuizIntro extends React.Component {
                         autoFocus
                         type="text"
                         value={this.state.quizName}
-                        onChange={(e) => this.setQuizName(e.target.value)}
+                        onChange={(e) => this.setState({quizName: e.target.value})}
                     />
                 </Form.Group>
 
@@ -46,7 +48,7 @@ class QuizIntro extends React.Component {
                         autoFocus
                         type="text"
                         value={this.state.questionAmount}
-                        onChange={(e) => this.setQuestionAmount(e.target.value)}
+                        onChange={(e) => this.setState({questionAmount:e.target.value})}
                     />
                 </Form.Group>
 

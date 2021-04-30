@@ -1,0 +1,29 @@
+.quiz {
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+}
+.quiz.container {
+    width: 10%;
+    align-items: center;
+    padding: 10px;
+    display: block;
+}
+
+ .score-text {
+    color: #053de7;
+     justify-content: center;
+     margin-left: 350px;
+ }
+ .submit-button Button {
+    margin-top: 20px;
+     margin-bottom: 20px;
+     width: 40%;
+     margin-left: 325px;
+}
+ .home-button {
+    margin-left: 325px;
+
+     width: 450px;
+
+ }

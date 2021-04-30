@@ -1,7 +1,8 @@
 import './App.css';
 import React from 'react';
 import aiImage from '../Game Search Bar/ai-machine-learning.png'
-import BuildQuizLink from "../Build Quiz Link/BuildQuizLink";
+import {Link} from "react-router-dom";
+import LinkList from "../LinkList/LinkList";
 
 class Home extends React.Component {
   constructor(props) {
@@ -20,11 +21,7 @@ class Home extends React.Component {
         <div className="home">
           <div className="container">
             <h1>Trivia Game</h1>
-            <div className="image">
-              <img src={aiImage} />
-            </div>
-            <BuildQuizLink/>
-            {/*<GameList games={this.state.games}/>*/}
+            <LinkList/>
           </div>
 
         </div>

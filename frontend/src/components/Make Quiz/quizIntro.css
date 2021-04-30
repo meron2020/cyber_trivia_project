@@ -1,0 +1,31 @@
+.quizIntro {
+    width: 300px;
+    margin: auto;
+}
+
+.quizIntro Button {
+    margin-top: 20px;
+    margin-left: 1%;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff; }
+.quizIntro Button:hover {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc; }
+.quizIntro Button:focus, .Button.focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5); }
+.quizIntro Button.disabled, .Button:disabled {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff; }
+.quizIntro Button:not(:disabled):not(.disabled):active, .Button:not(:disabled):not(.disabled).active,
+.show > .Button.dropdown-toggle {
+    color: #fff;
+    background-color: #0062cc;
+    border-color: #005cbf; }
+.quizIntro Button:not(:disabled):not(.disabled):active:focus, .Button:not(:disabled):not(.disabled).active:focus,
+.show > .Button.dropdown-toggle:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5); }
