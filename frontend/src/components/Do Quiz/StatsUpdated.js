@@ -15,3 +15,5 @@ class StatsUpdated extends React.Component {
         </div>)
     }
 }
+
+export default StatsUpdated;

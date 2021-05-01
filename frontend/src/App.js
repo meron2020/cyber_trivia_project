@@ -10,10 +10,12 @@ import {
     GameBrowser,
     RegisterEndPage,
     LoginEndPage,
-    MakeQuizEndPage
+    MakeQuizEndPage,
+    Stats,
+    DoQuiz,
+    StatsUpdated
 } from "./components/index";
 import './App.css';
-import DoQuiz from "./components/Do Quiz/DoQuiz";
 
 
 
@@ -66,6 +68,9 @@ class App extends React.PureComponent {
                             <Route path="/doQuiz" exact component={() => <DoQuiz user={this.state.user} jwtToken={this.state.jwtToken} quiz={this.state.quiz}/>} />
                             <Route path="/browseQuizzes" exact component={() => <GameBrowser setQuiz={this.setQuiz}/>}/>
                             <Route path={"/makeQuizEndPage"} exact component={() => <MakeQuizEndPage/>}/>
+                            <Route path={"/statsUpdated"} exact component={() => <StatsUpdated />}/>
+                            <Route path={"/stats"} exact component={() => <Stats user={this.state.user}/>}/>
+
                         </div>
 
 

@@ -5,3 +5,5 @@ export { default as Footer } from './Footer';
 export {  Login, Register, RegisterEndPage, LoginEndPage } from './Sign Up/index'
 export {BuildQuiz, BuildQuestion, MakeQuizEndPage} from './Make Quiz/index';
 export {GameBrowser} from './Browse Games/index';
+export {Stats} from './Stats/index';
+export {DoQuiz, StatsUpdated} from './Do Quiz/index';

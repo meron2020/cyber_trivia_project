@@ -152,6 +152,7 @@ const ServerConnection = {
             const response = await fetch(`${ServerConnection.url}user/${username}`, {headers: headers});
             if (response.ok) {
                 return await response.json();
+
             }
             throw new Error("Request failed!");
         }

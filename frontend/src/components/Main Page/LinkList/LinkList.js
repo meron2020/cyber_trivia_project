@@ -11,6 +11,7 @@ class LinkList extends React.Component {
             <div className="LinksList">
                 <HomePageLink linktext="Build a Quiz" link="/buildQuiz" picture={deskSetup}/>
                 <HomePageLink linktext="Browse Quizzes" link="/browseQuizzes" picture={deskWorkspace}/>
+                <HomePageLink linktext="Stats" link="/stats" picture={deskSetup}/>
             </div>
         )
     }

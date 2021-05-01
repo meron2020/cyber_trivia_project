@@ -17,7 +17,7 @@ function ToStatsUpdatedEndPage(props) {
         const percentage = getScore();
         const response =  await ServerConnection.updatePercentage(props.quiz, percentage, props.user).then(response => response)
         if (response === "Stats updated.") {
-            history.push("/registerEnd")
+            history.push("/statsUpdated")
         } else {
             alert ("Error!")
         }
