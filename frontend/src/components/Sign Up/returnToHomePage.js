@@ -13,7 +13,7 @@ function HomeButton() {
 
     return (
         <Button block size="lg" type="button" onClick={handleClick}>
-            Go home
+            Main Menu
         </Button>
     );
 }

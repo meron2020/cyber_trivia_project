@@ -4,6 +4,7 @@ import DoQuestion from "./DoQuestion";
 import Button from "react-bootstrap/Button";
 import HomeButton from "../Sign Up/returnToHomePage";
 import './DoQuiz.css'
+import ToStatsUpdatedEndPage from "./toStatsUpdatedEndpoint";
 
 class DoQuiz extends React.Component {
     constructor(props) {
@@ -19,7 +20,7 @@ class DoQuiz extends React.Component {
 
     }
 
-     componentDidMount() {
+    componentDidMount() {
         this.getQuiz().then(json => this.setState({questionList: json[0]}))
     }
 
@@ -40,20 +41,21 @@ class DoQuiz extends React.Component {
 
     getScore() {
         let trueAnswers = []
-        this.state.userAnswers.map(answer => (answer === true ? trueAnswers.push(answer): null))
+        this.state.userAnswers.map(answer => (answer === true ? trueAnswers.push(answer) : null))
 
         return Math.floor(trueAnswers.length * 100 / this.state.questionList.length);
     }
 
     async updatePercentage() {
         const percentage = this.getScore();
-        const response =  await ServerConnection.updatePercentage(this.props.quiz, percentage, this.props.user).then(response => response)
+        const response = await ServerConnection.updatePercentage(this.props.quiz, percentage, this.props.user).then(response => response)
         alert(response)
     }
 
     setQuestionComponent() {
         let question = this.state.questionList[this.state.userAnswers.length];
-        return <DoQuestion question={question} questionNumber={this.state.userAnswers.length + 1} addAnswer={this.addAnswer}/>
+        return <DoQuestion question={question} questionNumber={this.state.userAnswers.length + 1}
+                           addAnswer={this.addAnswer}/>
 
     }
 
@@ -73,23 +75,20 @@ class DoQuiz extends React.Component {
                             <h3>You scored {this.getScore()} out of 100!</h3>
                         </div>
                         <div className="submit-button">
-                        <Button block size="lg" type="submit"
-                                               onClick={this.updatePercentage.bind(this)}>Submit Quiz</Button>
-                    </div>
-                        <div className="home-button">
-                            <HomeButton/>
+                            <ToStatsUpdatedEndPage user={this.props.user} quiz={this.props.quiz}
+                                                   userAnswers={this.state.userAnswers}
+                                                   questionList={this.state.questionList}/>
                         </div>
                     </div>
                 )
             }
             return (<div className="quiz">
-                    {quizShow}
-                </div>
-
-            )
+                {quizShow}
+            </div>)
         }
     }
-
 }
+
+
 
 export default DoQuiz;
